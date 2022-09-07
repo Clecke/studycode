@@ -1,0 +1,172 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#pragma warning(disable:6031)
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	int a = 10;
+	//int b = a++;//输出为11，10
+	int b = ++a;//输出为11，11
+	printf("%d %d\n", a, b);
+	return	0;
+}
+
+//-2  第一位为符号位，都是
+//1000000000000000000010  --  原码
+//1111111111111111111101  --  反码
+//1111111111111111111110  --  补码
+
+auto -- auto int//一般都省略
+break   case  char   const  continue  default  do  double  else  enum  extern
+float  for  goto  if  int  long  register int a = 10;//建议把a放进寄存器中
+return  short  signed int a = -2;//定义的变量是有符号的
+sizeof  static  struct/*结构体关键字*/  switch  typedef  union/*联合体/共用体*/  unsigned  void  volatile  while  
+
+typedef unsigned int u_int//将unsigned int重新定义为u_int，二者的数据类型完全相同
+
+void test()
+{
+	static int a = 1;
+	a++;
+	printf("%d\n", a);
+}
+int main()
+{
+	int i = 0;
+	while (i<5)
+	{
+		test();
+		i++;
+	}
+	return 0;
+}
+extern -- 用于申明外部符号
+extern int g_val
+
+
+#define MAX 100
+//#define定义标识符常亮
+//#define可以定义宏-带参数
+
+
+
+int Max(int x, int y)
+{
+	if (x > y)
+		return x;
+	else	
+		return y;	
+}
+
+//宏的定义
+#define Max(X,Y) (X>Y?X:Y)
+
+int main()
+{
+	int a = 10;
+	int b = 20;
+	int max = Max(a, b);
+	printf("%d\n", max);
+	//宏的方式
+	max = Max(a, b);
+	printf("%d\n", max);
+	return 0;
+}
+
+int main()
+{
+	int a = 10;//4个字节
+	int* p = &a;//取地址
+	printf("%p\n", &a);
+	printf("%p\n", p);
+	*p = 20;//解引用操作符-找到p所在的地址，将其值改为20
+	//p是一种用来存放地址的变量-指针变量
+	return 0;
+}
+
+int main()
+{
+	char ch = 'w';
+	char* p = &ch;
+	printf("%d\n", sizeof(p));
+	return 0;
+}
+
+//小练习
+
+#define _CRT_SECURE_NO_DEPRECATE
+#pragma warning(disable:6031)
+
+#include<stdio.h>
+#include<string.h>
+#include<math.h>
+
+//将数组A中的内容和数组B中的内容进行交换。（数组一样大）
+
+int main()
+{
+	int arr1[] = { 1,2,3,4,5,6,7 };
+	int arr2[] = { 7,6,5,4,3,2,1 };
+	int arr3[7] = { 0 };
+
+	for (int i = 0; i < 7; i++)
+	{
+		arr3[i] = arr1[i];
+		arr1[i] = arr2[i];
+		arr2[i] = arr3[i];
+		printf("%d %d\n", arr1[i],arr2[i]);		
+	}
+	return 0;
+}
+//计算1 / 1 - 1 / 2 + 1 / 3 - 1 / 4 + 1 / 5 …… + 1 / 99 - 1 / 100 的值。
+
+int main()
+{
+	double result = 0;
+	for (int i = 1; i <= 100; i++)
+	{
+		if (i%2 == 0)
+		{
+			result = result - (1.0)/i ;
+		}
+		else
+		{
+			result = result + (1.0)/i ;
+		}
+	}
+	printf("%f\n", result);
+	return 0;
+}
+
+int main()
+{
+	double result = 0;
+  int flag = 1;
+	for (int i = 1; i <= 100; i++)
+	{
+		result += flag * (1.0) / i;
+		flag = -flag;
+	}
+	printf("%f\n", result);
+	return 0;
+}
+
+
+//编写程序数一下 1到 100 的所有整数中出现多少个数字9。
+
+int main()
+{
+	int a = 0;
+	for (int i = 1; i <= 100; i++)
+	{
+		if (i/10 == 9 || i%10 == 9)
+		{
+			a ++;
+			printf("%d\n", i);
+		}
+	}
+	printf("一共有%d个数字出现了数字9\n", a);
+	return 0;
+}

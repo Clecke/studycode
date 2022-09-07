@@ -1,0 +1,290 @@
+#define _CRT_SECURE_NO_DEPRECATE
+#pragma warning(disable:6031)
+
+#include<stdio.h>
+#include<string.h>
+
+int main()
+{
+	const int n = 10;
+	//n是变量，但是又有长属性，所以我们说n是常变量
+	int arr[10] = { 0 };
+	//创建arr的数组，由十个元素，都是0，类型为int整形
+	return 0;
+}
+
+//#define 定义的标识符常量
+#define MAX 10
+int main()
+{
+	int arr[MAX] = { 0 };
+	printf("%d\n", MAX);
+	return 0;
+}
+
+枚举-列举
+性别、星期、月份
+
+枚举关键 - enum
+enum Sex
+{
+	male,female,secret
+};
+
+int main()
+{
+	enum Sex s = female;
+	printf("%d\n", male);//有自己的值 0
+	printf("%d\n", female);//1
+	printf("%d\n", secret);//2
+	return 0;
+}
+
+"abcd"
+"hello"
+""//空字符串
+
+
+int main()
+{
+	char arr1[] = "abc";//数组
+	char arr2[] = { 'a','b','c' ,0};//数组
+	printf("%s\n", arr1);
+	printf("%s\n", arr2);
+	return 0; 
+}
+
+int main()
+{
+	char arr1[] = "abc";
+	char arr2[] = { 'a', 'b', 'c', 0};
+	printf("%d\n", strlen(arr1));//strlen - string length - 计算字符串长度的
+	printf("%d\n", strlen(arr2));//strlen - string length - 计算字符串长度的
+	return 0;
+}
+
+int main()
+{
+
+	printf("%d\n", strlen("d:\studycode\test9_2\study_9_2.cpp"));
+	return 0;
+}
+
+int main()
+{
+	int line = 0;
+	printf("开始学习\n");
+	while (line<10)
+	{
+		printf("敲一行代码\n");
+			line++;
+	}
+	printf("得到好offer\n");
+	return 0;
+}
+
+int add(int x, int y)
+{
+	int z = x + y;
+	return z;
+}
+
+int main()
+{
+	int sum = 0;
+	int num1 = 1;
+	int num2 = 2;
+	int a = 10;
+	int b = 20;
+	sum = add(num1, num2);
+	printf("%d\n", sum);
+	sum = add(a, b);
+	printf("%d\n", sum);
+	return 0;
+}
+
+int main()
+{
+	int arr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };//在arr中放十个整数数字
+//对应的存放位置：  0  1  2  3  4  5  6  7  8  9
+	//printf("%d\n", arr[4]);//打出的数字为5
+	int i = 0;
+	while (i<10)
+	{
+		printf("%d", arr[i]);
+		i++;
+	}
+	return 0;
+}
+
+int main()
+{
+	int a = 1;
+	int b = a << 2;
+	printf("%d", a);
+	printf("%d\n", b);
+	return 0;
+}
+
+int main()
+{
+	int a = 3;
+	int b = 5;
+	int c = a & b;
+	//a  --  011
+	//b  --  101
+	//c  --  001   进行对位与操作，0为假，1为真，01/10为假，11为真
+	printf("%d\n", c);
+	return 0;
+}
+
+int main()
+{
+	int a = 3;
+	int b = 5;
+	int c = a | b;
+	//011
+	//101
+	//111   01/10都为11
+	printf("%d\n", c);
+	return 0;
+}
+
+int main()
+{
+	int a = 3;
+	int b = 5;
+	int c = a ^ b;
+	//对应的二进制位相同，则为0，相异，则为1
+	//011
+	//101
+	//110
+	printf("%d\n", c);
+	return 0;
+}
+
+int main()
+{
+	int a = 0;
+	a = a + 10;
+	a += 10;
+	return 0;
+}
+
+//小练习
+
+#define _CRT_SECURE_NO_DEPRECATE
+#pragma warning(disable:6031)
+
+#include<stdio.h>
+#include<string.h>
+
+//给定两个整形变量的值，将两个值的内容进行交换
+int main()
+{
+	int a = 10;
+	int b = 5;
+	int c = 0;
+	int d = 0;
+	c = a;
+	d = b;
+	a = d;
+	b = c;
+	printf("%d\n", a);
+	printf("%d\n", b);
+	return 0;
+}
+//不允许创建临时变量，交换两个数的内容
+int main()
+{
+	int a = 11;
+	int b = 5;
+	a = a + b;
+	b = a - b;
+	a = a - b;
+	printf("%d\n%d\n", a, b);
+	return 0;
+}
+int main()
+{
+	int a = 11;
+	int b = 5;
+	a = a ^ b;
+	b = a ^ b;
+	a = a ^ b;
+	printf("%d\n%d\n", a, b);
+	return 0;
+}
+//求10个整数中的最大值
+int main()
+{
+	int arr[10];
+	int c = 0;
+	for (int i = 0; i < 10;i++)
+	{
+		scanf("%d", &arr[i]);
+	}
+	for (int i = 0; i < 10;i++)
+	{
+		if (arr[i] > c)
+		{
+			c = arr[i];
+		}
+	}
+	printf("%d\n", c);
+	return 0;
+}
+
+//将三个数按从大到小输出
+int main()
+{
+	int a, b, c, max;
+	scanf("%d %d %d", &a, &b, &c);
+	if (a>b)
+	{
+
+	}
+	return 0;
+}
+int main()
+{
+	int a, b, c, t;
+	printf("请输入三个数：\n");
+	scanf("%d%d%d", &a, &b, &c);
+
+	if (a < b)
+	{
+		t = a;
+		a = b;
+		b = t;
+	}
+	if (a < c)
+	{
+		t = a;
+		a = c;
+		c = t;
+	}
+	if (b < c)
+	{
+		t = b;
+		b = c;
+		c = t;
+	}
+	printf("%d %d %d\n", a, b, c);
+	return 0;
+}
+求两个数的最大公约数
+
+int main()
+{
+	int a ;
+	int b ;
+	int c = 0;
+	scanf("%d %d", &a, &b);
+	while (c = a % b)
+	{
+		a = b;
+		b = c;
+	}
+	printf("%d", b);
+}
